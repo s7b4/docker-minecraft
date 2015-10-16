@@ -9,7 +9,7 @@
 ## docker-compose.yml
 
     worker:
-      build: .
+      image: s7b4/minecraft
       ports:
         - "25565:25565"
       environment:
