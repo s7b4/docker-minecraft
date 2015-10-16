@@ -16,7 +16,7 @@ if [ ! -f "$MC_HOME/eula.txt" ]; then
 fi
 
 # Droits sur volume
-chown -R minecraft:minecraft "$MC_HOME"
+chown -R "$MC_USER":"$MC_USER" "$MC_HOME"
 
 # Démarrage de minecraft
 cd "$MC_HOME"
