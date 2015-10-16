@@ -30,5 +30,5 @@ RUN mkdir /opt/minecraft \
 COPY scripts/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 25665
+EXPOSE 25565
 VOLUME /home/minecraft
