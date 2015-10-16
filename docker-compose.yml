@@ -1,7 +1,7 @@
 worker:
   build: .
   ports:
-    - "25665:25665"
+    - "25565:25565"
   environment:
     - EULA=true
     - START_MEMORY=2048M
