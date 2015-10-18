@@ -5,4 +5,3 @@ worker:
   environment:
     - EULA=true
     - START_MEMORY=2048M
-    - MAX_MEMORY=2048M

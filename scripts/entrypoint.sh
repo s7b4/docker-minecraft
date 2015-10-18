@@ -20,4 +20,4 @@ chown -R "$MC_USER":"$MC_USER" "$MC_HOME"
 
 # Démarrage de minecraft
 cd "$MC_HOME"
-exec gosu "$MC_USER" java -Xms${START_MEMORY:="1024M"} -Xmx${MAX_MEMORY:="1024M"} -jar /opt/minecraft/minecraft_server.jar nogui
+exec gosu "$MC_USER" java -Xms${START_MEMORY:="1024M"} -Xmx${MAX_MEMORY:="$START_MEMORY"} -jar /opt/minecraft/minecraft_server.jar nogui
