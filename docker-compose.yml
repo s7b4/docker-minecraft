@@ -5,3 +5,5 @@ worker:
   environment:
     - EULA=true
     - START_MEMORY=2048M
+  tty: true
+  stdin_open: true

@@ -6,7 +6,9 @@
 * START_MEMORY: Paramètre -Xms de java (défaut = 1024M)
 * MAX_MEMORY: Paramètre -Xmx de java (défaut = START_MEMORY)
 
-## docker-compose.yml
+## Compose
+
+### `docker-compose.yml`
 
     worker:
       image: s7b4/minecraft
@@ -14,5 +16,11 @@
         - "25565:25565"
       environment:
         - EULA=true
-        - START_MEMORY=1024M
-        - MAX_MEMORY=2048M
+        - START_MEMORY=2048M
+      tty: true
+      stdin_open: true
+
+### Commandes utiles
+
+* Démarrage: `docker-compose up -d`
+* Console: `docker attach <nom conteneur>` puis `^P` `^Q` pour sortir
