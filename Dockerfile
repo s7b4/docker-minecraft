@@ -20,7 +20,7 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/
 
 # Gosu
-RUN curl -o /usr/local/sbin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.6/gosu-$(dpkg --print-architecture)" \
+RUN curl -o /usr/local/sbin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" \
 	&& chmod +x /usr/local/sbin/gosu
 
 # Minecraft
