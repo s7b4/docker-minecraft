@@ -4,7 +4,7 @@ MAINTAINER s7b4 <baron.stephane@gmail.com>
 # Minecraft
 ENV MC_VERSION 1.8.8
 ENV MC_USER minecraft
-ENV MC_HOME /home/$MC_HOME
+ENV MC_HOME /home/$MC_USER
 
 # set user/group IDs
 RUN groupadd -r "$MC_USER" --gid=999 && useradd -r -g "$MC_USER" --uid=999 "$MC_USER"
