@@ -2,7 +2,7 @@ FROM debian:8
 MAINTAINER s7b4 <baron.stephane@gmail.com>
 
 # Minecraft
-ENV MC_VERSION 1.9
+ENV MC_VERSION 1.9.2
 ENV MC_USER minecraft
 ENV MC_HOME /home/$MC_USER
 
