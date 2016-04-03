@@ -1,34 +1,28 @@
-FROM debian:8
+FROM alpine:3.3
 MAINTAINER s7b4 <baron.stephane@gmail.com>
 
 # Minecraft
 ENV MC_VERSION 1.9.2
-ENV MC_USER minecraft
-ENV MC_HOME /home/$MC_USER
+ENV APP_USER minecraft
+ENV APP_HOME /home/$APP_USER
 
 # set user/group IDs
-RUN groupadd -r "$MC_USER" --gid=999 && useradd -r -g "$MC_USER" --uid=999 "$MC_USER"
+RUN addgroup -g 999 $APP_USER && \
+	adduser -G $APP_USER -D -H -u 999 -s /bin/bash -h $APP_HOME $APP_USER
 
 # Base
-RUN apt-get update \
-	&& apt-get install --no-install-recommends --yes \
-		ca-certificates \
+RUN apk add --update bash \
 		curl \
-		vim \
-		openjdk-7-jre-headless \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/
-
-# Gosu
-RUN curl -o /usr/local/sbin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" \
-	&& chmod +x /usr/local/sbin/gosu
+		su-exec \
+		openjdk8-jre-base\
+	&& rm -rf /var/cache/apk/*
 
 # Minecraft
-RUN mkdir /opt/minecraft \
+RUN mkdir -p /opt/minecraft \
 	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://s3.amazonaws.com/Minecraft.Download/versions/$MC_VERSION/minecraft_server.$MC_VERSION.jar"
 
 COPY scripts/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 25565 25575
-VOLUME $MC_HOME
+VOLUME $APP_HOME

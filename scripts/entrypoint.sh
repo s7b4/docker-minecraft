@@ -2,7 +2,7 @@
 set -e
 
 # EULA
-if [ ! -f "$MC_HOME/eula.txt" ]; then
+if [ ! -f "$APP_USER/eula.txt" ]; then
 	: ${EULA:=false}
 
 	if [ "$EULA" = "true" ]; then
@@ -16,8 +16,8 @@ if [ ! -f "$MC_HOME/eula.txt" ]; then
 fi
 
 # Droits sur volume
-chown -R "$MC_USER":"$MC_USER" "$MC_HOME"
+chown -R "$APP_USER":"$APP_USER" "$APP_HOME"
 
 # Démarrage de minecraft
-cd "$MC_HOME"
-exec gosu "$MC_USER" java -Xms${START_MEMORY:="1024M"} -Xmx${MAX_MEMORY:="$START_MEMORY"} -jar /opt/minecraft/minecraft_server.jar nogui
+cd "$APP_HOME"
+exec su-exec "$APP_USER" java -Xms${START_MEMORY:="1024M"} -Xmx${MAX_MEMORY:="$START_MEMORY"} -jar /opt/minecraft/minecraft_server.jar nogui
