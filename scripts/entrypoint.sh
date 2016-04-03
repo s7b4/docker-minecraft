@@ -6,8 +6,8 @@ if [ ! -f "$APP_USER/eula.txt" ]; then
 	: ${EULA:=false}
 
 	if [ "$EULA" = "true" ]; then
-		echo "# Docker on $(date)" > "$MC_HOME/eula.txt"
-		echo "eula=$EULA" >> "$MC_HOME/eula.txt"
+		echo "# Docker on $(date)" > "$APP_HOME/eula.txt"
+		echo "eula=$EULA" >> "$APP_HOME/eula.txt"
 	else
 		echo >&2 'error: EULA environment variable is invalid, set it to true'
 		echo >&2 '-> https://account.mojang.com/documents/minecraft_eula'

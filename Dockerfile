@@ -14,7 +14,7 @@ RUN addgroup -g 999 $APP_USER && \
 RUN apk add --update bash \
 		curl \
 		su-exec \
-		openjdk8-jre-base\
+		openjdk8-jre-base \
 	&& rm -rf /var/cache/apk/*
 
 # Minecraft
