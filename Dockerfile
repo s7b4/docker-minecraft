@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER s7b4 <baron.stephane@gmail.com>
 
 # Minecraft
@@ -7,8 +7,8 @@ ENV APP_USER minecraft
 ENV APP_HOME /home/$APP_USER
 
 # set user/group IDs
-RUN addgroup -g 999 $APP_USER && \
-	adduser -G $APP_USER -D -H -u 999 -s /bin/bash -h $APP_HOME $APP_USER
+RUN addgroup $APP_USER && \
+	adduser -G $APP_USER -D -H -s /bin/bash -h $APP_HOME $APP_USER
 
 # Base
 RUN apk add --update bash \
