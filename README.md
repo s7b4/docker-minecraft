@@ -1,7 +1,5 @@
 # docker-minecraft
 
-[![](https://imagelayers.io/badge/s7b4/minecraft:latest.svg)](https://imagelayers.io/?images=s7b4/minecraft:latest 'Get your own badge on imagelayers.io')
-
 ## Variables d'environnement
 
 * EULA: true si https://account.mojang.com/documents/minecraft_eula accepté
