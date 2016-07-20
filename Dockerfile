@@ -11,11 +11,10 @@ RUN addgroup $APP_USER && \
 	adduser -G $APP_USER -D -H -s /bin/bash -h $APP_HOME $APP_USER
 
 # Base
-RUN apk add --update bash \
+RUN apk --no-cache add bash \
 		curl \
 		su-exec \
-		openjdk8-jre-base \
-	&& rm -rf /var/cache/apk/*
+		openjdk8-jre-base
 
 # Minecraft
 RUN mkdir -p /opt/minecraft \
