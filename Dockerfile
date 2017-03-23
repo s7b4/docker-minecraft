@@ -1,5 +1,5 @@
 FROM alpine:3.5
-MAINTAINER s7b4 <baron.stephane@gmail.com>
+LABEL maintainer "s7b4 <baron.stephane@gmail.com>"
 
 # Minecraft
 ENV MC_VERSION 1.11.2
