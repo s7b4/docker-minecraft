@@ -1,10 +1,11 @@
-FROM alpine:3.5
+FROM alpine:3.6
 LABEL maintainer "s7b4 <baron.stephane@gmail.com>"
 
 # Minecraft
-ENV MC_VERSION 1.11.2
-ENV APP_USER minecraft
-ENV APP_HOME /home/$APP_USER
+ENV MC_VERSION=1.11.2 \
+	APP_USER=minecraft
+
+ENV APP_HOME=/home/$APP_USER
 
 # set user/group IDs
 RUN addgroup $APP_USER && \
