@@ -2,7 +2,7 @@ FROM alpine:3.6
 LABEL maintainer "s7b4 <baron.stephane@gmail.com>"
 
 # Minecraft
-ENV MC_VERSION=1.11.2 \
+ENV MC_VERSION=1.12 \
 	APP_USER=minecraft
 
 ENV APP_HOME=/home/$APP_USER
