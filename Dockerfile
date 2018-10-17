@@ -2,9 +2,7 @@ FROM alpine:3.6
 LABEL maintainer "s7b4 <baron.stephane@gmail.com>"
 
 # Minecraft
-ENV MC_VERSION=1.13 \
-	APP_USER=minecraft
-
+ENV APP_USER=minecraft
 ENV APP_HOME=/home/$APP_USER
 
 # set user/group IDs
@@ -19,7 +17,7 @@ RUN apk --no-cache add bash \
 
 # Minecraft
 RUN mkdir -p /opt/minecraft \
-	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://launcher.mojang.com/mc/game/$MC_VERSION/server/d0caafb8438ebd206f99930cfaecfa6c9a13dca0/server.jar"
+	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://launcher.mojang.com/v1/objects/fe123682e9cb30031eae351764f653500b7396c9/server.jar"
 
 COPY scripts/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
