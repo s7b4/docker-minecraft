@@ -17,7 +17,7 @@ RUN apk --no-cache add bash \
 
 # Minecraft
 RUN mkdir -p /opt/minecraft \
-	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"
+	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar"
 
 COPY scripts/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
