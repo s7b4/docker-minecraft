@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.11
 LABEL maintainer "s7b4 <baron.stephane@gmail.com>"
 
 # Minecraft
@@ -12,12 +12,13 @@ RUN addgroup $APP_USER && \
 # Base
 RUN apk --no-cache add bash \
 		curl \
+		curl \
 		su-exec \
-		openjdk8-jre-base
+		openjdk11-jre-headless
 
 # Minecraft
 RUN mkdir -p /opt/minecraft \
-	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar"
+	&& curl -o /opt/minecraft/minecraft_server.jar -sSL "https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar"
 
 COPY scripts/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
