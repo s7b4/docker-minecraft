@@ -12,7 +12,6 @@ RUN addgroup $APP_USER && \
 # Base
 RUN apk --no-cache add bash \
 		curl \
-		curl \
 		su-exec \
 		openjdk11-jre-headless
 
